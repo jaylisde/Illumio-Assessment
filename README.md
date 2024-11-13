@@ -111,7 +111,7 @@ To generate the necessary test data files, use the `generate_test_files.py` scri
    - **Lookup Table File Path:** The script generates a lookup table CSV file at the specified path.
    - **Flow Log File Path:** The script generates a flow log file at the specified path.
    - **Number of Mappings:** Adjust the number of mappings in the lookup table (default is 10,000).
-   - **Number of Entries:** Adjust the number of entries in the flow log file (default is 100,000).
+   - **Number of Entries:** Adjust the number of entries in the flow log file (default is 1,000,000).
    - **Include Malformed Lines:** Set to `True` to include malformed lines in the flow log for testing parser robustness.
 
 3. **Output:**
@@ -158,6 +158,23 @@ python flow_log_parser.py <flow_log_file> <lookup_csv_file> <output_file>
 ```bash
 python flow_log_parser.py flow_logs.txt lookup_table.csv output_report.csv
 ```
+
+## Test Results
+During testing, the Flow Log Parser successfully processed a flow log file and generated an output CSV file in **1.66 seconds**.
+
+```
+Processing complete. Output written to 'output.csv'. Time taken: 1.66 seconds.
+```
+
+### Profile the program
+```bash
+pip install py-spy
+sudo py-spy record -o profile.svg -- python flow_log_parser.py flow_log_file lookup_table.csv output.csv
+```
+![Profile Image](profile.svg)
+```
+#### Todo Performance Optimizations
+
 
 ## Error Handling
 

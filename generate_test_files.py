@@ -126,7 +126,7 @@ def generate_flow_log(file_path, lookup_file_path, num_entries=100000, include_m
                     line = ' '.join(fields) + '\n'
 
                 file.write(line)
-        print(f"Flow log file generated at '{file_path}' with {num_entries} entries (~10MB).")
+        print(f"Flow log file generated at '{file_path}' with {num_entries} entries (~100MB).")
     except Exception as e:
         print(f"Error generating flow log file: {e}")
         sys.exit(1)
@@ -135,10 +135,10 @@ def main():
     """
     Main function to generate test files.
     """
-    lookup_file = '/Users/lishaojie/Documents/lookup_table.csv'
-    flow_log_file = '/Users/lishaojie/Documents/flow_log_file'
+    lookup_file = 'lookup_table.csv'
+    flow_log_file = 'flow_log_file'
     num_mappings = 10000      # Up to 10,000 lookup mappings
-    num_entries = 1000000      # Adjusted for up to ~10MB flow log file
+    num_entries = 1000000      # Adjusted for up to ~100MB flow log file
     include_malformed = True  # Whether to include malformed lines to test parser robustness
 
     generate_lookup_table(lookup_file, num_mappings)
